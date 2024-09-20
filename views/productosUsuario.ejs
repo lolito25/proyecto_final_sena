@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Productos</h1>
+        <% if (messages.error) { %>
+            <div class="alert alert-danger"><%= messages.error %></div>
+        <% } %>
+        <% if (messages.success) { %>
+            <div class="alert alert-success"><%= messages.success %></div>
+        <% } %>
+        <div class="row">
+            <% productos.forEach(producto => { %>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= producto.nombre %></h5>
+                            <p class="card-text">Precio: $<%= producto.precio %></p>
+                            <p class="card-text">Descripción: <%= producto.descripcion %></p>
+                            <p class="card-text">Stock: <%= producto.stock %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        <a href="/">Volver al Inicio</a>
+    </div>
+</body>
+</html>

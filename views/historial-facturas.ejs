@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Facturas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Historial de Facturas</h1>
+        <% if (messages.error) { %>
+            <div class="alert alert-danger"><%= messages.error %></div>
+        <% } %>
+        <% if (messages.success) { %>
+            <div class="alert alert-success"><%= messages.success %></div>
+        <% } %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID de Venta</th>
+                    <th>ID del Producto</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% ventas.forEach(venta => { %>
+                    <tr>
+                        <td><%= venta.id_venta %></td>
+                        <td><%= venta.producto_id %></td>
+                        <td><%= venta.cantidad %></td>
+                        <td>$<%= venta.total %></td>
+                        <td><%= venta.fecha %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <a href="/ventas" class="btn btn-secondary mt-3">Volver a Ventas</a>
+    </div>
+</body>
+</html>

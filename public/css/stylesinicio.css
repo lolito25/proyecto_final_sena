@@ -1,0 +1,70 @@
+body.dark-theme {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    background-color: black;
+    margin: 0;
+    padding: 10px 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: aqua;
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.container h1 span {
+    color: aqua;
+}
+
+.container p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.iconos_redesociales {
+    margin-bottom: 20px;
+}
+
+.iconos_redesociales a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+.iconos_redesociales a:hover {
+    color: aqua;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px aqua;
+}

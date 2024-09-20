@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .invoice-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .invoice-header h1 {
+            margin: 0;
+        }
+        .invoice-details {
+            margin-bottom: 20px;
+        }
+        .invoice-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="invoice-container">
+            <div class="invoice-header">
+                <h1>Factura de Venta</h1>
+                <p>Gracias por su compra en D'alybe</p>
+            </div>
+            <% if (messages.error) { %>
+                <div class="alert alert-danger"><%= messages.error %></div>
+            <% } %>
+            <% if (messages.success) { %>
+                <div class="alert alert-success"><%= messages.success %></div>
+            <% } %>
+            <div class="invoice-details">
+                <p><strong>ID de Venta:</strong> <%= venta.id_venta %></p>
+                <p><strong>Producto:</strong> <%= venta.nombre_producto %></p>
+                <p><strong>Cantidad:</strong> <%= venta.cantidad %></p>
+                <p><strong>Total:</strong> $<%= venta.total %></p>
+                <p><strong>Fecha:</strong> <%= venta.fecha %></p>
+            </div>
+            <div class="invoice-footer">
+                <a href="/ventas" class="btn btn-secondary mt-3">Volver a Ventas</a>
+                <a href="/historial-facturas" class="btn btn-primary mt-3">Ver Historial de Facturas</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

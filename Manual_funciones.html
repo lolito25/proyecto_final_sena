@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual de Funciones del Proyecto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #39ff14;
+            color: #1e1e1e;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Manual de Funciones del Proyecto</h1>
+        <p>Este proyecto es una aplicación web que permite la gestión de usuarios, productos y ventas. A continuación, se detallan las conexiones entre las rutas, métodos HTTP, controladores, funciones y modelos utilizados en el proyecto.</p>
+
+        <h2>Conexiones del Proyecto</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ruta</th>
+                    <th>Método HTTP</th>
+                    <th>Controlador</th>
+                    <th>Función</th>
+                    <th>Modelo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- auth.js -->
+                <tr>
+                    <td>/login</td>
+                    <td>POST</td>
+                    <td>authController</td>
+                    <td>login</td>
+                    <td>findUserByEmail</td>
+                </tr>
+                <tr>
+                    <td>/register</td>
+                    <td>POST</td>
+                    <td>authController</td>
+                    <td>register</td>
+                    <td>createUser</td>
+                </tr>
+                <tr>
+                    <td>/logout</td>
+                    <td>GET</td>
+                    <td>authController</td>
+                    <td>logout</td>
+                    <td>-</td>
+                </tr>
+                <!-- dashboard.js -->
+                <tr>
+                    <td>/dashboard</td>
+                    <td>GET</td>
+                    <td>dashboardController</td>
+                    <td>dashboard</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/dashboard/admin</td>
+                    <td>GET</td>
+                    <td>dashboardController</td>
+                    <td>adminPanel</td>
+                    <td>-</td>
+                </tr>
+                <!-- productRoute.js -->
+                <tr>
+                    <td>/productos</td>
+                    <td>GET</td>
+                    <td>productController</td>
+                    <td>getAllProducts</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/editar-producto/:id</td>
+                    <td>GET</td>
+                    <td>productController</td>
+                    <td>getProductById</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/agregar-producto</td>
+                    <td>GET</td>
+                    <td>productController</td>
+                    <td>renderAddProductForm</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/agregar-producto</td>
+                    <td>POST</td>
+                    <td>productController</td>
+                    <td>createProduct</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/actualizar-producto/:id</td>
+                    <td>POST</td>
+                    <td>productController</td>
+                    <td>updateProduct</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/desactivar-producto/:id</td>
+                    <td>POST</td>
+                    <td>productController</td>
+                    <td>deactivateProduct</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/productosUsuario</td>
+                    <td>GET</td>
+                    <td>productController</td>
+                    <td>getAllProductsForUser</td>
+                    <td>-</td>
+                </tr>
+                <!-- salesRoute.js -->
+                <tr>
+                    <td>/ventas</td>
+                    <td>GET</td>
+                    <td>salesController</td>
+                    <td>getAllSales</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/factura/:id</td>
+                    <td>GET</td>
+                    <td>salesController</td>
+                    <td>getSaleById</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/vender</td>
+                    <td>POST</td>
+                    <td>salesController</td>
+                    <td>createSale</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/factura</td>
+                    <td>GET</td>
+                    <td>salesController</td>
+                    <td>getLatestSale</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>/historial-facturas</td>
+                    <td>GET</td>
+                    <td>salesController</td>
+                    <td>getAllSalesHistory</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Dependencias Utilizadas</h2>
+        <ul>
+            <li><strong>bcryptjs:</strong> Para el hashing de contraseñas.</li>
+            <li><strong>connect-flash:</strong> Para mensajes flash.</li>
+            <li><strong>dotenv:</strong> Para manejar variables de entorno.</li>
+            <li><strong>ejs:</strong> Para las vistas.</li>
+            <li><strong>express:</strong> Framework web.</li>
+            <li><strong>express-session:</strong> Para manejar sesiones.</li>
+            <li><strong>mysql2:</strong> Para la conexión a la base de datos MySQL.</li>
+            <li><strong>express-validator:</strong> Para la validación de datos.</li>
+        </ul>
+
+        <h2>Consultas desde Postman</h2>
+        <p>Para realizar consultas desde Postman, sigue estos pasos:</p>
+        <ol>
+            <li>Abre Postman y selecciona el método HTTP adecuado (GET, POST, etc.).</li>
+            <li>Ingresa la URL de la ruta que deseas probar (por ejemplo, <code>http://localhost:4005/login</code>).</li>
+            <li>Si la ruta requiere parámetros en el cuerpo de la solicitud (como en el caso de <code>/login</code> o <code>/register</code>), selecciona la pestaña "Body" y elige "raw" con formato JSON.</li>
+            <li>Ingresa los datos necesarios en formato JSON. Por ejemplo, para <code>/login</code>:
+                <pre><code>{
+    "correo": "usuario@example.com",
+    "password": "tucontraseña"
+}</code></pre>
+            </li>
+            <li>Haz clic en "Send" para enviar la solicitud y ver la respuesta del servidor.</li>
+        </ol>
+
+        <h2>Descripción del Proyecto</h2>
+        <p>Este proyecto es una aplicación web diseñada para gestionar usuarios, productos y ventas. A continuación, se describen las principales funcionalidades:</p>
+        <ul>
+            <li><strong>Autenticación de Usuarios:</strong> Permite a los usuarios registrarse, iniciar sesión y cerrar sesión. Los usuarios pueden tener diferentes roles (usuario o administrador).</li>
+            <li><strong>Gestión de Productos:</strong> Los administradores pueden agregar, editar y desactivar productos. Los usuarios pueden ver la lista de productos disponibles.</li>
+            <li><strong>Gestión de Ventas:</strong> Los usuarios pueden realizar ventas y ver el historial de facturas. Los administradores pueden ver todas las ventas realizadas.</li>
+            <li><strong>Panel de Administración:</strong> Los administradores tienen acceso a un panel donde pueden gestionar productos y ver estadísticas de ventas.</li>
+        </ul>
+    </div>
+</body>
+</html>

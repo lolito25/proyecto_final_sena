@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Realizar Compra</h1>
+        <% if (messages.error) { %>
+            <div class="alert alert-danger"><%= messages.error %></div>
+        <% } %>
+        <% if (messages.success) { %>
+            <div class="alert alert-success"><%= messages.success %></div>
+        <% } %>
+        <form action="/vender" method="post">
+            <div class="form-group">
+                <label for="producto_id">Producto</label>
+                <select class="form-control" id="producto_id" name="producto_id" required>
+                    <% productos.forEach(producto => { %>
+                        <option value="<%= producto.id_producto %>"><%= producto.nombre %> - $<%= producto.precio %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cantidad">Cantidad</label>
+                <input type="number" class="form-control" id="cantidad" name="cantidad" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Vender</button>
+        </form>
+        <a href="/productosUsuario" class="btn btn-secondary mt-3">Ver Productos</a>
+        <a href="/factura" class="btn btn-primary mt-3">Ver Última Factura</a>
+    </div>
+</body>
+</html>
